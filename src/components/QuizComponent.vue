@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       timer: null,
-      isDev: process.env.VUE_APP_DEV
+      isDev: process.env.VUE_APP_DEV === "1"
     }
   },
   methods: {
