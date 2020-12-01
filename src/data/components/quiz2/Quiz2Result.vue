@@ -4,7 +4,7 @@
     dans une très prochaine Bad News !
   </div>
   <div v-else-if="goodAnswers >= (0.75 * total)">
-    Vous avez tout d'un(e) serial killer en puissance ! Vous êtes pourriez être le sujet d'un "en bref",
+    Vous avez tout d'un(e) serial killer en puissance ! Vous pourriez être le sujet d'un "en bref",
     encore un peu de persévérance si vous souhaitez passer dans la Bad News du jour !
   </div>
   <div v-else-if="goodAnswers >= (total/ 2)">
