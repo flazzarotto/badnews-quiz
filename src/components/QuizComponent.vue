@@ -18,7 +18,7 @@
           </button>
         </nav>
       </div>
-      <div class="quiz-block" v-if="quiz.status === 'result'">
+      <div class="quiz-block result" v-if="quiz.status === 'result'" >
         <ResultComponent :result="quiz.matchedResults" :score="finalResult"
                          :question-number="quiz.cards.length"
                          :displayScore="quiz.displayScore"></ResultComponent>
@@ -146,6 +146,9 @@ section {
 
 .quiz-block {
   flex-grow: 1;
+  &.result {
+    margin-right: -150px;
+  }
 }
 
 .cheatsheet {

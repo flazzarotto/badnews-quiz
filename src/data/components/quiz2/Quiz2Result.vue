@@ -19,14 +19,22 @@
     Bravo ! Vous êtes certain(e) de ne jamais passer dans l'émission, mais vous pouvez postuler
     pour le poste d'assistant d'Ariel.
   </div>
+
+  <img v-if="goodAnswers === 0 || goodAnswers >= total / 2" :src="bite" alt="résultats"/>
+
 </template>
 
 <script>
+import bite from './bite.png'
+
 export default {
-name: "Quiz1Result1",
+  name: "Quiz1Result1",
   props: {
     result: Object,
     total: Number
+  },
+  data() {
+    return {bite}
   },
   computed: {
     goodAnswers() {
@@ -43,5 +51,7 @@ name: "Quiz1Result1",
 </script>
 
 <style scoped>
-
+  img {
+    margin-top: 30px;
+  }
 </style>
