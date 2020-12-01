@@ -3,8 +3,8 @@
                              :component-name="quiz.preview" v-if="quiz.status==='preview'"></DynamicComponentContainer>
   <section v-else>
     <h2>{{ quiz.title }}</h2>
-    <p>{{ quiz.description }} - {{ quiz.cards.length }} questions</p>
-    <small>{{ updated }}</small>
+    <p>{{ quiz.description }} ({{ quiz.cards.length }} questions)</p>
+    <small v-if="false">{{ updated }}</small>
 
     <div class="container">
       <div class="quiz-block" v-if="quiz.status !== 'result'">
