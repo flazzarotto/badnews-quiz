@@ -8,7 +8,6 @@
 
     <div class="container">
       <div class="quiz-block" v-if="quiz.status !== 'result'">
-        <CardComponent :card="quiz.cards[current]"></CardComponent>
         <nav id="buttonNav">
           <button v-if="prev !== null" @click="goto(prev)">&lt;</button>
           <button :class="{disabled: !answered}" v-if="next !== null" @click="goto(next)">&gt;</button>
@@ -17,6 +16,7 @@
             Résultats du test !
           </button>
         </nav>
+        <CardComponent :card="quiz.cards[current]"></CardComponent>
       </div>
       <div class="quiz-block result" v-if="quiz.status === 'result'" >
         <ResultComponent :result="quiz.matchedResults" :score="finalResult"
@@ -141,14 +141,10 @@ section {
   flex-direction: row;
   align-items: flex-start;
   position: relative;
-  padding-right: 150px;
 }
 
 .quiz-block {
   flex-grow: 1;
-  &.result {
-    margin-right: -150px;
-  }
 }
 
 .cheatsheet {
@@ -170,10 +166,8 @@ section {
 }
 
 #buttonNav {
-  position: absolute;
   top: 0;
   text-align: center;
-  width: 150px;
   right: 0;
 }
 
