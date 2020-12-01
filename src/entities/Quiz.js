@@ -100,7 +100,7 @@ class Quiz {
     constructor({
                     title, type = 'quiz', resultTypes, labelType = '1',
                     answerLabelType = 'a', questions, description, results, displayScore = true,
-                    previewComponent = null
+                    previewComponent = null, active = true
                 }) {
         this._title = title
         this.type = type
@@ -115,6 +115,11 @@ class Quiz {
         this._status = previewComponent ? 'preview' : 'answer'
         this._preview = previewComponent
         this._current = 0
+        this._active = active
+    }
+
+    get active() {
+        return this._active
     }
 
     get current() {

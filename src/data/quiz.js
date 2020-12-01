@@ -1,5 +1,6 @@
 export default [
     {
+        "active": false, // default: true
         "title": "BadQuiz - le quiz spécial ####",
         "description": "Êtes-vous éligible pour agrandir votre *****",
         "type": "test",                             // test|quiz
@@ -129,6 +130,7 @@ export default [
         "type": "quiz",
         "displayScore": false,
         labelType: "I",
+        "previewComponent": 'Quiz1Preview',
         questions: [
             {
                 "title": "Êtes-vous déjà resté(e) coincé(e) dans un sèche-linge lors d'une soirée arrosée ?",

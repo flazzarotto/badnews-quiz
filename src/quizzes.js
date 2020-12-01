@@ -5,7 +5,9 @@ const quizzes = []
 
 for (let quiz of data) {
     let q = QuizFactory(quiz)
-    quizzes.push(q)
+    if (q.active) {
+        quizzes.push(q)
+    }
 }
 
 export default quizzes
