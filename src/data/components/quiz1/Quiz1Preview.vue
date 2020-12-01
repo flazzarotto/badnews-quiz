@@ -24,14 +24,8 @@
     <!-- vulve -->
     <div class="pub vulve" @click="$emit('preview-click')">
       <div>
-        <figure class="img">
-          <span class="clito"></span>
-          <span class="vulva">
-            <span class="before"></span>
-            <span class="after"></span>
-          </span>
-        </figure>
-        <span>Et si l'écartement de chatounette était fait pour vous ?</span>
+        <img :src="vulve" alt="spread your ****"/>
+        <span>Plutôt du genre chatounette ? <span>Cliquez ici !</span></span>
         <strong>rejoignez la commu !</strong>
         <em class="poweredBy">
           <img :src="ariel" alt="logo Ariel"/>
@@ -47,6 +41,7 @@
 import previewBite from './bite.gif'
 import previewAnus from './anus.png'
 import ariel from './ariel.png'
+import vulve from './vulve.png'
 
 export default {
   name: "Quiz1Preview",
@@ -54,7 +49,8 @@ export default {
     return {
       previewBite,
       previewAnus,
-      ariel
+      ariel,
+      vulve
     }
   }
 }
@@ -98,6 +94,9 @@ export default {
 
     img {
       box-shadow: none;
+    }
+
+    & > img {
       height: 100%;
     }
 
@@ -191,6 +190,7 @@ strong {
     border-color: black;
 
     & > span {
+      width: 100%;
       text-shadow: none;
       display: block;
       background: white;
@@ -230,37 +230,19 @@ strong {
   }
 }
 
-@mixin op($scale, $name) {
-  @keyframes openPussy-#{$name} {
-    from {
-      transform: scaleX(1);
-    }
-    50% {
-      transform: scaleX($scale);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-}
-
-@keyframes big-clito {
+@keyframes spreadVulva {
   from {
-    transform: translateX(-25%) scale(1);
+    transform: rotate(45deg);
   }
   50% {
-    transform: translateX(0) scale(2);
+    transform: scaleX(2) rotate(45deg);
   }
   to {
-    transform: translateX(-25%) scale(1);
+    transform: rotate(45deg);
   }
 }
 
-@include op(1.5, small);
-@include op(2, regular);
-
 .pub.vulve {
-
 
   strong {
     display: none;
@@ -269,58 +251,28 @@ strong {
 
   & > div {
     border-color: #999;
-    background: black;
+    background: #fbdcbb;
 
-    .img {
-      filter: blur(1px);
-      position: absolute;
+    & > img {
+      height: 75%;
+      margin-top: 8%;
+      transform: rotate(45deg);
+      animation: spreadVulva 3s ease-in-out infinite;
+    }
+
+    & > span {
       width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      color: rgb(180, 100, 100);
-
-      .clito {
-        background-color: rgb(180, 100, 100);
-        width: 1.25rem;
-        height: 1.25rem;
-        border-radius: 100%;
-        position: absolute;
-        top: 34%;
-        left: 50%;
-        animation: big-clito 3s infinite;
-      }
-
-      .vulva {
-        animation: openPussy-regular 3s infinite;
-        letter-spacing: -.75rem;
-        transform-origin: center;
-
-        &:before, &:after {
-          font-size: 10rem;
-        }
-
-        .before, &:after {
-          text-indent: -1rem;
-        }
-
-        .before, .after {
-          font-size: 5rem;
-          position: relative;
-          top: 8px;
-        }
-
-        &:before, .before:before {
-          content: '(';
-        }
-
-        &:after, .after:after {
-          content: ')';
-        }
+      & > span {
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-top: 90px;
+        //text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
+        display: block;
+        border-radius: 100px;
+        background: rgba(255,255,255,0.3);
+        padding-top: 7px;
+        color: red;
+        animation: blink 1s steps(5, start) infinite;
       }
     }
 
@@ -331,7 +283,7 @@ strong {
       width: 100%;
       height: auto;
       left: 0;
-      background: rgba(255, 255, 255, .3);
+      background: rgba(0, 0, 0, .7);
       padding: 5px 0;
       font-size: 1rem;
 
@@ -350,7 +302,7 @@ strong {
     }
 
     & > span {
-      color: rgba(255, 80, 200);
+      color: #852f1e;
       text-shadow: none;
       font-weight: bold;
     }
