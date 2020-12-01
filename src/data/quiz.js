@@ -31,7 +31,7 @@ export default [
                         "text": "aucun des 3",
                     }
                 ],
-                component: 'Quiz1QuestionTestComponent'
+                component: 'Quiz1Question'
             },
             {
                 "title": "Vous avez :",
@@ -112,23 +112,13 @@ export default [
             },
 
         ],
-        // "displayScore": false, // default: true
+        "displayScore": false,
         // "displayCorrection": false, // default: false (true for quiz type)
         "results": [ // mandatory
             {
-                "identifier": "bite",
-                "condition": result => result.bite >= 1,
-                "component": "Quiz1ResultTestComponent"
-            },
-            {
-                "identifier": "vulve",
-                "condition": result => result.vulve >= 1,
-                "component": "Quiz1ResultTestComponent2"
-            },
-            {
-                "identifier": "anus",
-                "condition": result => result.anus >= 1,
-                "component": "Quiz1ResultTestComponent3"
+                "identifier": 1,
+                "condition": () => true,
+                "component": "Quiz1Result"
             }
         ]
     },

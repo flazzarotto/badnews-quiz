@@ -8,7 +8,7 @@
 import bite from './bite.png'
 
 export default {
-  name: "Quiz1QuestionTestComponent",
+  name: "Quiz1Question",
   data() {
     return {
       bite

@@ -22,8 +22,10 @@
         <ResultComponent :result="quiz.matchedResults" :score="finalResult"
                          :question-number="quiz.cards.length"
                          :displayScore="quiz.displayScore"></ResultComponent>
-        <button @click="reset()">Modifier mes réponses</button>
-        <button @click="reset(true)">Recommencer à zéro</button>
+        <div class="reset-quiz">
+          <button @click="reset()">Modifier mes réponses</button>
+          <button @click="reset(true)">Recommencer à zéro</button>
+        </div>
       </div>
 
       <div class="cheatsheet" v-if="isDev">
@@ -171,4 +173,9 @@ section {
   width: 150px;
   right: 0;
 }
+
+.reset-quiz {
+  margin-top: 30px;
+}
+
 </style>
