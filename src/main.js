@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import qs from 'qs'
 
-let gaData = `<script async src="https://www.googletagmanager.com/gtag/js?id=VUE_APP_GA"></script> +
+let gaData = `<script async src="https://www.googletagmanager.com/gtag/js?id=VUE_APP_GA"></script>
         <script>window.dataLayer = window.dataLayer || [];
             function gtag() {
                 dataLayer.push(arguments);
