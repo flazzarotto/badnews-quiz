@@ -11,7 +11,7 @@ let gaData = `<script async src="https://www.googletagmanager.com/gtag/js?id=VUE
             gtag('config', 'VUE_APP_GA');</script>`
 
 if (process.env.VUE_APP_GA) {
-    gaData = gaData.replace('VUE_APP_GA', process.env.VUE_APP_GA)
+    gaData = gaData.replace(/VUE_APP_GA/g, process.env.VUE_APP_GA)
 }
 
 if (qs.parse(document.location.href.split('?',2)[1])['test'] !== undefined) {
