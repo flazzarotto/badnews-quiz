@@ -1,7 +1,7 @@
 import {createApp} from 'vue'
 import App from './App.vue'
 import qs from 'qs'
-import ls from '@kebab-case/ls-manager'
+import lsManager from '@kebab-case/ls-manager'
 
 let gaData = `https://www.googletagmanager.com/gtag/js?id=VUE_APP_GA`
 
@@ -15,14 +15,16 @@ if (process.env.VUE_APP_GA) {
     window.gtag('config', process.env.VUE_APP_GA)
 }
 
-let gaExcluded = false
+// let gaExcluded = false
+
+const ls = lsManager()
 
 if (qs.parse(document.location.href.split('?', 2)[1])['test'] !== undefined) {
-    gaExcluded = true
-    // ls.setItem('GA-excluded', true)
+    // gaExcluded = true
+    ls.setItem('GA-excluded', true)
 }
 
-// let gaExcluded = localStorage.getItem('GA-excluded')
+let gaExcluded = localStorage.getItem('GA-excluded')
 
 if (!gaExcluded) {
     const script = document.createElement('script')
