@@ -1,23 +1,32 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
-// import qs from 'qs'
-//
-// let gaData = `<script async src="https://www.googletagmanager.com/gtag/js?id=VUE_APP_GA"></script>
-//         <script>window.dataLayer = window.dataLayer || [];
-//             function gtag() {
-//                 dataLayer.push(arguments);
-//             }
-//             gtag('js', new Date());
-//             gtag('config', 'VUE_APP_GA');</script>`
-//
-// if (process.env.VUE_APP_GA) {
-//     gaData = gaData.replace(/VUE_APP_GA/g, process.env.VUE_APP_GA)
-// }
-//
-// if (qs.parse(document.location.href.split('?',2)[1])['test'] !== undefined) {
-//     gaData = ['<!-- ',' -->'].join(gaData)
-// }
-//
-// document.querySelector('head').innerHTML += gaData
+import qs from 'qs'
+import ls from '@kebab-case/ls-manager'
+
+let gaData = `https://www.googletagmanager.com/gtag/js?id=VUE_APP_GA`
+
+if (process.env.VUE_APP_GA) {
+    gaData = gaData.replace(/VUE_APP_GA/g, process.env.VUE_APP_GA)
+    window.dataLayer = window.dataLayer || []
+    window.gtag = function () {
+        window.dataLayer.push(arguments)
+    }
+    window.gtag('js', new Date())
+    window.gtag('config', process.env.VUE_APP_GA)
+}
+
+if (qs.parse(document.location.href.split('?', 2)[1])['test'] !== undefined) {
+    ls.setItem('GA-excluded', true)
+}
+
+let gaExcluded = localStorage.getItem('GA-excluded')
+
+if (!gaExcluded) {
+    const script = document.createElement('script')
+    script.src = gaData
+    script.setAttribute('async', 'async')
+    const head = document.querySelector('head')
+    head.insertBefore(script, head.firstChild)
+}
 
 createApp(App).mount('#app')

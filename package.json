@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@kebab-case/ls-manager": "^1.1.0",
     "any-base": "^1.1.0",
     "core-js": "^3.6.5",
+    "qs": "^6.9.4",
     "romanice": "^1.2.0",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
