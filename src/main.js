@@ -15,11 +15,14 @@ if (process.env.VUE_APP_GA) {
     window.gtag('config', process.env.VUE_APP_GA)
 }
 
+let gaExcluded = false
+
 if (qs.parse(document.location.href.split('?', 2)[1])['test'] !== undefined) {
-    ls.setItem('GA-excluded', true)
+    gaExcluded = true
+    // ls.setItem('GA-excluded', true)
 }
 
-let gaExcluded = localStorage.getItem('GA-excluded')
+// let gaExcluded = localStorage.getItem('GA-excluded')
 
 if (!gaExcluded) {
     const script = document.createElement('script')
